@@ -1,26 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nick's Mods &mdash; Retro Handheld Repair &amp; Custom Builds</title>
+<meta name="description" content="Hardware repairs, custom shells, and software mods for Game Boy, Game Boy Color, Game Boy Advance, GBA SP, 2DS and 3DS. Serving Oviedo, FL.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://main.nickmods.workers.dev/">
 
-<title>Nick's Mods — Retro Handheld Repair & Custom Builds</title>
-<meta name="description" content="Hardware repairs, custom shells, and software mods for Game Boy, Game Boy Color, Game Boy Advance, GBA SP, 2DS and 3DS.">
+<!-- Favicon: pixel-art D-pad + face buttons in the site's cyan/magenta palette -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nick's Mods — Retro Handheld Repair & Custom Builds">
-<meta property="og:description" content="Hardware repairs, custom shells, and software mods for Game Boy, Game Boy Color, Game Boy Advance, GBA SP, 2DS and 3DS.">
 <meta property="og:site_name" content="Nick's Mods">
-<meta property="og:url" content="https://nickmods.workers.dev/">
+<meta property="og:title" content="Nick's Mods &mdash; Retro Handheld Repair &amp; Custom Builds">
+<meta property="og:description" content="Hardware repairs, custom shells, and software mods for Game Boy, Game Boy Color, Game Boy Advance, GBA SP, 2DS and 3DS. Serving Oviedo, FL.">
+<meta property="og:url" content="https://main.nickmods.workers.dev/">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://main.nickmods.workers.dev/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="347">
+<meta property="og:image:height" content="425">
+<meta property="og:image:alt" content="Game Boy Color with a custom purple reshell and LED backlit screen">
 
-<!-- Twitter -->
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nick's Mods — Retro Handheld Repair & Custom Builds">
-<meta name="twitter:description" content="Hardware repairs, custom shells, and software mods for Game Boy, Game Boy Color, Game Boy Advance, GBA SP, 2DS and 3DS.">
+<meta name="twitter:title" content="Nick's Mods &mdash; Retro Handheld Repair &amp; Custom Builds">
+<meta name="twitter:description" content="Hardware repairs, custom shells, and software mods for Game Boy, Game Boy Color, Game Boy Advance, GBA SP, 2DS and 3DS. Serving Oviedo, FL.">
 <meta name="twitter:image" content="https://main.nickmods.workers.dev/og-image.jpg">
+<!-- Structured data: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ElectronicsStore",
+  "name": "Nick's Mods",
+  "description": "Retro handheld repair and custom mod shop specializing in Game Boy, Game Boy Color, Game Boy Advance, DS, 2DS, and 3DS hardware repair, custom shells, LED backlight installs, flashcart setup, and console jailbreaking.",
+  "email": "retromodnick@gmail.com",
+  "url": "https://main.nickmods.workers.dev/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Oviedo",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Oviedo, FL"
+  },
+  "priceRange": "$$"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Chakra+Petch:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --void:#0a0618;
@@ -85,7 +121,7 @@ a{color:inherit;}
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
-/* cursor glow — small neon ring that trails the pointer */
+/* cursor glow &mdash; small neon ring that trails the pointer */
 .cursor-glow{
   position:fixed;
   top:0;
@@ -115,7 +151,7 @@ a{color:inherit;}
   .cursor-glow{display:none;}
 }
 
-/* blur orbs — soft drifting glow behind hero content */
+/* blur orbs &mdash; soft drifting glow behind hero content */
 .orb-field{
   position:absolute;
   inset:0;
@@ -154,7 +190,7 @@ a{color:inherit;}
   .orb-cyan,.orb-magenta{animation:none;opacity:.28;}
 }
 
-/* HUD corner brackets — targeting-reticle frame */
+/* HUD corner brackets &mdash; targeting-reticle frame */
 .hud-corners{position:relative;}
 .hud-corners::before,
 .hud-corners::after,
@@ -178,7 +214,7 @@ a{color:inherit;}
 .hud-corners:hover .hc-tr,
 .hud-corners:hover .hc-bl{opacity:.9;width:22px;height:22px;}
 
-/* configurator gets a quieter, always-on frame — it's the "console" */
+/* configurator gets a quieter, always-on frame &mdash; it's the "console" */
 .configurator.hud-corners::before,
 .configurator.hud-corners::after,
 .configurator.hud-corners .hc-tr,
@@ -200,7 +236,7 @@ a{color:inherit;}
   filter:drop-shadow(0 0 18px rgba(255,46,196,.35)) drop-shadow(0 0 34px rgba(47,232,255,.18));
 }
 
-/* scan-bar divider — the flyer's stacked color bars, elevated */
+/* scan-bar divider &mdash; the flyer's stacked color bars, elevated */
 .scanbar{
   height:10px;
   width:100%;
@@ -299,7 +335,7 @@ nav.links a:hover{color:var(--chrome-a);}
 }
 .hero h1 span{display:block;position:relative;}
 
-/* glitch flicker — RGB channel split on hover, HUD-style */
+/* glitch flicker &mdash; RGB channel split on hover, HUD-style */
 .hero h1 span.glitch{cursor:default;}
 .hero h1 span.glitch::before,
 .hero h1 span.glitch::after{
@@ -957,7 +993,7 @@ footer{
     <div class="hero-inner">
       <p class="eyebrow">Retro Handheld Repair &amp; Custom Builds</p>
       <h1 class="chrome"><span class="glitch" data-text="NICK'S">NICK'S</span><span class="glitch" data-text="MODS">MODS</span></h1>
-      <p class="hero-sub">Hardware repairs, custom shells, and software mods for the handhelds you grew up with. Every unit is opened, upgraded, and tested by hand — one console at a time.</p>
+      <p class="hero-sub">Hardware repairs, custom shells, and software mods for the handhelds you grew up with. Every unit is opened, upgraded, and tested by hand &mdash; one console at a time.</p>
       <div class="hero-ctas">
         <a href="#configurator" class="btn btn-primary">Build your mod</a>
         <a href="#work" class="btn btn-ghost">See recent builds</a>
@@ -991,7 +1027,7 @@ footer{
       <div class="section-head">
         <p class="kicker">Recent Builds</p>
         <h2>Shells built to match the game, not just the console</h2>
-        <p>A sample of recent commissions — full reshells with matching art, upgraded sticks, and LED backlit screens.</p>
+        <p>A sample of recent commissions &mdash; full reshells with matching art, upgraded sticks, and LED backlit screens.</p>
       </div>
       <div class="work-grid">
 
@@ -1001,7 +1037,7 @@ footer{
             <p class="work-console">Game Boy Color</p>
             <h3>Crystal shell + LED backlight</h3>
             <p>Full custom reshell with an LED backlit screen swap so the original display finally holds up in daylight.</p>
-            <a href="#configurator" class="work-link">Get this build →</a>
+            <a href="#configurator" class="work-link">Get this build &rarr;</a>
           </div>
         </article>
 
@@ -1011,7 +1047,7 @@ footer{
             <p class="work-console">Game Boy Advance SP</p>
             <h3>Unit-02 reshell</h3>
             <p>Clean red-and-black custom shell on an SP body, finished with matching hardware and buttons.</p>
-            <a href="#configurator" class="work-link">Get this build →</a>
+            <a href="#configurator" class="work-link">Get this build &rarr;</a>
           </div>
         </article>
 
@@ -1021,7 +1057,7 @@ footer{
             <p class="work-console">Game Boy Advance</p>
             <h3>Tactics-themed reshell</h3>
             <p>White-and-blue custom shell with character art, paired with a fresh D-pad and button set.</p>
-            <a href="#configurator" class="work-link">Get this build →</a>
+            <a href="#configurator" class="work-link">Get this build &rarr;</a>
           </div>
         </article>
 
@@ -1036,7 +1072,7 @@ footer{
       <div class="section-head">
         <p class="kicker">Price Board</p>
         <h2>Straightforward pricing, no guesswork</h2>
-        <p>Flat rates on the common stuff. A few jobs depend on the console and shell you bring in — those get a quick personal quote.</p>
+        <p>Flat rates on the common stuff. A few jobs depend on the console and shell you bring in &mdash; those get a quick personal quote.</p>
       </div>
 
       <div class="board">
@@ -1075,7 +1111,7 @@ footer{
               <div class="price-tag">$40</div>
             </div>
             <div class="price-row addon-row">
-              <div class="price-label">Pokémon upgrade</div>
+              <div class="price-label">Pok&eacute;mon upgrade</div>
               <div class="price-tag">+$20</div>
             </div>
             <div class="price-row addon-row">
@@ -1095,7 +1131,7 @@ footer{
       <div class="section-head">
         <p class="kicker">Build Your Mod</p>
         <h2>Price out your build before you reach out</h2>
-        <p>Pick a console and the work you want done — the total updates as you go. This is a live estimate, not a checkout; Nick confirms the final price and turnaround before anything ships.</p>
+        <p>Pick a console and the work you want done &mdash; the total updates as you go. This is a live estimate, not a checkout; Nick confirms the final price and turnaround before anything ships.</p>
       </div>
 
       <div class="configurator hud-corners">
@@ -1107,7 +1143,7 @@ footer{
         </div>
         <div class="config-body">
           <div class="config-main">
-            <span class="field-label">01 — Console</span>
+            <span class="field-label">01 &mdash; Console</span>
             <div class="console-grid" id="consoleGrid">
               <div class="chip active" data-console="Game Boy">Game Boy</div>
               <div class="chip" data-console="Game Boy Color">GB Color</div>
@@ -1117,14 +1153,14 @@ footer{
               <div class="chip" data-console="3DS">3DS</div>
             </div>
 
-            <span class="field-label">02 — Hardware</span>
+            <span class="field-label">02 &mdash; Hardware</span>
             <label class="opt">
               <input type="checkbox" data-price="25" data-id="stick">
               <div class="opt-text">
                 <div class="t">Analog stick / button replacement</div>
                 <div class="d">Base service, first button included</div>
                 <div class="stepper">
-                  <button type="button" data-step="-1" aria-label="Fewer extra buttons">−</button>
+                  <button type="button" data-step="-1" aria-label="Fewer extra buttons">&minus;</button>
                   <span id="stickCount">0</span>
                   <button type="button" data-step="1" aria-label="More extra buttons">+</button>
                   <span class="d" style="margin-left:6px;">extra buttons ($5 ea)</span>
@@ -1148,7 +1184,7 @@ footer{
               <div class="opt-price vary">Varies</div>
             </label>
 
-            <span class="field-label" style="margin-top:26px;">03 — Software</span>
+            <span class="field-label" style="margin-top:26px;">03 &mdash; Software</span>
             <label class="opt">
               <input type="checkbox" data-price="20" data-id="flashcart">
               <div class="opt-text"><div class="t">R4 &amp; flashcart setup</div><div class="d">Any supported console</div></div>
@@ -1162,7 +1198,7 @@ footer{
             <div class="subopts" id="jailbreakSub">
               <label class="opt">
                 <input type="checkbox" data-price="20" data-id="pokemon">
-                <div class="opt-text"><div class="t">Pokémon upgrade</div></div>
+                <div class="opt-text"><div class="t">Pok&eacute;mon upgrade</div></div>
                 <div class="opt-price">+$20</div>
               </label>
               <label class="opt">
@@ -1210,12 +1246,12 @@ footer{
         <div class="proc-step">
           <p class="proc-num">03</p>
           <h4>Ship it or drop it off</h4>
-          <p>Local pickup/drop-off or mail it in — either way, your handheld is tracked start to finish.</p>
+          <p>Local pickup/drop-off or mail it in &mdash; either way, your handheld is tracked start to finish.</p>
         </div>
         <div class="proc-step">
           <p class="proc-num">04</p>
           <h4>Get it back rebuilt</h4>
-          <p>Fully tested before it goes back to you — buttons, screen, and software all verified working.</p>
+          <p>Fully tested before it goes back to you &mdash; buttons, screen, and software all verified working.</p>
         </div>
       </div>
     </div>
@@ -1227,9 +1263,9 @@ footer{
   <div class="footer-wrap">
     <div class="footer-cta">
       <h2 class="chrome" style="font-family:'Chakra Petch',sans-serif;">Ready to bring a handheld back to life?</h2>
-      <p>Email Nick with your console and what you'd like done — quotes are usually quick.</p>
+      <p>Email Nick with your console and what you'd like done &mdash; quotes are usually quick.</p>
       <a href="mailto:retromodnick@gmail.com" class="btn btn-primary">retromodnick@gmail.com</a>
-      <p class="footer-note"><b>Online checkout is coming soon.</b> For now, builds are quoted and paid for directly with Nick over email — the configurator above gives you a solid estimate to start from.</p>
+      <p class="footer-note"><b>Online checkout is coming soon.</b> For now, builds are quoted and paid for directly with Nick over email &mdash; the configurator above gives you a solid estimate to start from.</p>
     </div>
     <div class="scanbar" style="margin-bottom:34px;border-radius:4px;" aria-hidden="true"></div>
     <div class="status-ticker" id="statusTicker">
@@ -1237,7 +1273,7 @@ footer{
       NODE: <b>JEFFERSON-OH</b> // STATUS: <b>ONLINE</b> // SESSION UPTIME: <b id="uptimeClock">00:00:00</b>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Nick's Mods. Handhelds mended by hand.</span>
+      <span>&copy; 2026 Nick's Mods. Handhelds mended by hand.</span>
       <a href="mailto:retromodnick@gmail.com">retromodnick@gmail.com</a>
       <span class="footer-credit">Site by <a href="https://michaelhouse.dev/" target="_blank" rel="noopener">Michael House</a></span>
     </div>
@@ -1287,7 +1323,7 @@ footer{
 
 /* data-stream sidebars */
 (function(){
-  var chars = '01アイウエオカキクケコ0123456789ABCDEF';
+  var chars = '01\u30A2\u30A4\u30A6\u30A8\u30AA\u30AB\u30AD\u30AF\u30B1\u30B30123456789ABCDEF';
   function randLine(len){
     var s = '';
     for(var i=0;i<len;i++) s += chars[Math.floor(Math.random()*chars.length)];
@@ -1449,10 +1485,10 @@ footer{
 
       if(isQuote){
         hasQuote = true;
-        lines.push(label + ' — custom quote');
+        lines.push(label + ' &mdash; custom quote');
       } else {
         total += price;
-        lines.push(label + ' — $' + price);
+        lines.push(label + ' &mdash; $' + price);
       }
     });
 
@@ -1468,7 +1504,7 @@ footer{
   document.getElementById('emailBuildBtn').addEventListener('click', function(e){
     e.preventDefault();
     var b = window.__buildState || {console: state.console, lines: [], total: 0, hasQuote:false};
-    var subject = "Mod request — " + b.console;
+    var subject = "Mod request &mdash; " + b.console;
     var bodyLines = [
       "Hi Nick,",
       "",
@@ -1480,7 +1516,7 @@ footer{
       bodyLines.push("Requested services:");
       b.lines.forEach(function(l){ bodyLines.push("- " + l); });
     } else {
-      bodyLines.push("(No services selected yet — open to suggestions.)");
+      bodyLines.push("(No services selected yet &mdash; open to suggestions.)");
     }
     bodyLines.push("");
     bodyLines.push("Estimated total: $" + b.total + (b.hasQuote ? " + custom quote for marked items" : ""));
