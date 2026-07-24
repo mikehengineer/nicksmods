@@ -8,9 +8,11 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://main.nickmods.workers.dev/">
 
-    <!-- Favicon: Inline Data URL (Bypasses Cloudflare Asset Routing) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230a0618'/><path d='M6 2h4v4h4v4h-4v4H6v-4H2V6h4V2z' fill='%232fe8ff'/><path d='M7 3h2v4h4v2H9v4H7V9H3V7h4V3z' fill='%23ff2ec4'/></svg>">
-
+<!-- Favicon: pixel-art D-pad + face buttons in the site's cyan/magenta palette -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -331,7 +333,14 @@ nav.links a:hover{color:var(--chrome-a);}
   margin:0;
   letter-spacing:.02em;
 }
-.hero h1 span{display:block;position:relative;}
+.hero h1 span{
+  display:block;
+  position:relative;
+  background:inherit;
+  -webkit-background-clip:inherit;
+  background-clip:inherit;
+  -webkit-text-fill-color:inherit;
+}
 
 /* glitch flicker &mdash; RGB channel split on hover, HUD-style */
 .hero h1 span.glitch{cursor:default;}
@@ -399,6 +408,7 @@ nav.links a:hover{color:var(--chrome-a);}
   justify-content:center;
   padding:24px;
   transition:opacity .4s ease;
+  pointer-events:none;
 }
 #bootScreen.hide{opacity:0;pointer-events:none;}
 .boot-lines{
@@ -843,8 +853,25 @@ section{padding:96px 24px;position:relative;}
   color:var(--chrome-a);
   margin:8px 0 4px;
   text-shadow:0 0 24px rgba(47,232,255,.35);
+  transition:text-shadow .15s ease;
 }
-.total-note{font-size:.78rem;color:var(--sunset);min-height:1.2em;line-height:1.5;}
+.total-amount.pulse{
+  text-shadow:0 0 32px rgba(47,232,255,.75), 0 0 60px rgba(47,232,255,.35);
+}
+.total-note{
+  font-size:.82rem;
+  font-weight:600;
+  color:var(--void);
+  min-height:1.6em;
+  line-height:1.5;
+  display:inline-block;
+}
+.total-note:not(:empty){
+  background:var(--sunset);
+  padding:3px 10px;
+  border-radius:20px;
+  letter-spacing:.02em;
+}
 .total-cta{
   margin-top:18px;
   width:100%;
@@ -1495,6 +1522,13 @@ footer{
     document.getElementById('summaryList').innerHTML = lines.length
       ? ('Console: ' + state.console + '<br>' + lines.join('<br>'))
       : 'No services selected yet.';
+
+    var amountEl = document.getElementById('totalAmount');
+    amountEl.classList.remove('pulse');
+    void amountEl.offsetWidth; // restart animation even if value didn't change
+    amountEl.classList.add('pulse');
+    clearTimeout(amountEl._pulseTimer);
+    amountEl._pulseTimer = setTimeout(function(){ amountEl.classList.remove('pulse'); }, 260);
 
     window.__buildState = { console: state.console, lines: lines, total: total, hasQuote: hasQuote };
   }
